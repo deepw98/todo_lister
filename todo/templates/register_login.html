@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register_Login</title>
+</head>
+<body>
+    <div class='reg'>
+        <h2>Registration Form</h2>
+        <form method='post'>
+            {% csrf_token %}
+            <label for="first_name">First name:</label><br>
+            <input type="text" id="first_name" name="first_name"><br> <!-- Corrected name -->
+            <label for="last_name">Last name:</label><br>
+            <input type="text" id="last_name" name="last_name"><br> <!-- Corrected name -->
+            <label for="username">User name:</label><br>
+            <input type="text" id="username" name="username"><br> <!-- Corrected name -->
+            <label for="pword">Password:</label><br>
+            <input type="password" id="password" name="password"><br> <!-- Corrected name -->
+
+            {% if error_register %}
+                <p style="color: red;">{{ error_register }}</p>
+            {% endif %}
+
+            {% if success_register %}
+                <p style="color: green;">{{ success_register }}</p>
+            {% endif %}
+            <br>
+            <button type='submit' name='register'>Register</button>
+        </form>
+    </div>
+    <div class='log'>
+        <h2>Login</h2>
+        <form method='post'>
+            {% csrf_token %}
+            <label for="username">User name:</label><br>
+            <input type="text" id="username" name="username"><br> <!-- Corrected name -->
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br> <!-- Corrected name -->
+            {% if error_login %}
+                 <p style="color: red;">{{ error_login }}</p>
+            {% endif %}
+
+            <br>
+            <button type='submit' name='login'>Log in</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'to_do/css/list.css' %}">
+</head>
+<body>
+    <div class="container1">
+        <div class="logo">
+            <h1 id='logoback'>
+                <img id="logo" src="{% static 'to_do/images/logo.png' %}">
+            </h1>
+        </div>
+    </div>
+    <div class='container'>
+        <h1 class='taskhead'>Tasks in "{{ todo_list.name }}"</h1>
+
+        <!-- Task List -->
+        <ul id="taskList">
+            {% for task in tasks %}
+                <li class="task-row" id="task-{{ task.id }}">
+                    <input type="checkbox" {% if task.completed %}checked{% endif %}>
+                    <span class="task-title">{{ task.title }}</span>
+                    <input type="text" class="edit-input" style="display: none;">
+                    <button class="edit-button">Edit</button>
+                    <button class="save-button" data-task-id="{{ task.id }}" style="display: none;">Save</button>
+                    <button class="delete-btn" onclick="deleteTask({{ task.id }})">Delete</button>
+                </li>
+            {% endfor %}
+        </ul>
+        
+
+        <!-- Add Task Form -->
+        <form method="post" action="{% url 'list' todo_list.id %}">
+            {% csrf_token %}
+            <input type="text" name="new_task" placeholder="New Task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- Navigation Links -->
+        <a href="{% url 'todo_lists' %}">Back to To-Do Lists</a>
+
+        <!-- Logout Form -->
+        <form method="POST" action="{% url 'logout' %}" style="margin-bottom: 20px;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    <script src="{% static 'to_do/js/list.js' %}"></script>
+    <script src="{% static 'to_do/js/app.js' %}"></script>    
+</body>
+</html>

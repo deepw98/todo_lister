@@ -1,0 +1,58 @@
+{%load static%}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+        .container1{
+            background-color:rgb(62, 62, 240);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <img class="logo" src="{% static 'to_do/images/logo.png' %}">
+    </div>
+    <div class= "container">
+        <h1>About</h1>
+        <p>
+            This is a website created for the specific goal of providing users with to-do lists. 
+            It is a safe and reliable way to store a list containing your daily tasks.
+            It has a simple user interface and security measures to ensure that your personal 
+            data does not end up in the hands of malicious hackers.
+        </p>
+    </div>
+</body>
+</html>

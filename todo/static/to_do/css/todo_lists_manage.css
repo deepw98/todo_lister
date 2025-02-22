@@ -1,0 +1,229 @@
+/* General Reset */
+body, h1, ul, li, form, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Background and Font Settings */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: grid;
+    grid-template-rows: 0.3fr auto auto; /* Logo, Main Content, Footer */
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "logo"
+        "content";
+    justify-items: center;
+    min-height: 100vh;
+    padding: 0px;
+}
+
+/* Logo Styling */
+#item1 {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(62, 62, 240);
+}
+
+#item1 .logo {
+    max-width: 300px;
+    height: 40%;
+}
+
+/* To-Do List Container */
+#content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0px;
+    justify-items: center;
+    align-content: start;
+    grid-row: 2;
+    width: 100%;
+    max-width: 600px;
+}
+h1{
+    text-align: center;
+}
+
+#listhead {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #007bff;
+    height: fit-content;
+    margin-bottom: 1px;
+    margin-block-end: 0em;
+}
+
+/* To-Do List */
+ol.display {
+    list-style: none;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0px;
+}
+
+ol.display li {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    gap: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Link Styling for To-Do Names */
+.todo-link {
+    text-decoration: none;
+    font-size: 1.55rem; 
+    color: #007bff;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.todo-link:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.button {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.edit-button { background-color: #28a745; }
+.edit-button:hover { background-color: #218838; }
+
+.delete-button { background-color: #dc3545; }
+.delete-button:hover { background-color: #c82333; }
+
+/* Add Button */
+.add-button {
+    background-color: #007bff;
+    width: 200px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover { background-color: #0056b3; }
+
+/* Form */
+form {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    display: grid;
+    gap: 15px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    width: 100px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover { background-color: #0056b3; }
+
+/* Back Link */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a:hover { text-decoration: underline; }
+
+/* Logout Button */
+form button {
+    background-color: #dc3545;
+}
+
+form button:hover {
+    background-color: #cc4626;
+}
+@media screen and (max-width: 480px) {
+    body {
+        grid-template-rows: 0.15fr auto auto;
+        padding: 5px;
+    }
+
+    #item1 {
+        height: 50px;
+        padding: 5px;
+    }
+
+    #item1 .logo {
+        max-width: 67px; 
+        height: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #listhead {
+        font-size: 2rem;
+    }
+
+    ol.display li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .todo-link {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+
+    .add-button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    form {
+        max-width: 100%;
+    }
+}

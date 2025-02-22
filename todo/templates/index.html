@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'to_do/css/index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="item1">
+            <h1>
+                <img class="logo" src="{% static 'to_do/images/logo.png' %}">
+            </h1>
+        </div>
+        <nav id="nav_buttons">
+            <button id="bh">Home</button>
+            <button id="ba">About us</button>
+            <button id="bc">Contact</button>
+        </nav>
+        <h1 id="reglog1">Register or Login</h1>
+        <div class="reglog2">
+            <div class="reg">
+                <h2>Registration Form</h2>
+                <form method="post" onsubmit="return validatePassword()">
+                    {% csrf_token %}
+                    <label for="first_name">First name:</label><br>
+                    <input type="text" id="first_name" name="first_name" value="{{ first_name|default:'' }}"><br>
+                    <label for="last_name">Last name:</label><br>
+                    <input type="text" id="last_name" name="last_name" value="{{ last_name|default:'' }}"><br>
+                    <label for="username">User name:</label><br>
+                    <input type="text" id="username" name="username" value="{{ username|default:'' }}"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"><br>
+
+                    {% if error_register %}
+                        <p style="color: red;">{{ error_register }}</p>
+                    {% endif %}
+                    {% if success_register %}
+                        <p style="color: green;">{{ success_register }}</p>
+                    {% endif %}
+                    <br>
+                    <button type="submit" name="register">Register</button>
+                </form>
+            </div>
+            <div class="log">
+                <h2>Login</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="username">User name:</label><br>
+                    <input type="text" id="username" name="username"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"><br>
+
+                    {% if error_login %}
+                        <p style="color: red;">{{ error_login }}</p>
+                    {% endif %}
+                    <br>
+                    <button type="submit" name="login">Log in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'to_do/js/index.js' %}"></script>
+</body>
+</html>

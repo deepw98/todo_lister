@@ -1,0 +1,55 @@
+                                                     Documentation: To-do Lister
+                                       ------------------------------------------------------
+                                       ******************************************************
+
+						       1.Introduction
+                                                    -------------------
+
+To-do Lister is a simple website that provides users ability to make multiple to-do lists simultaneously and store multiple tasks within it.
+It also provides features to edit or delete tasks and/or whole to-do lists.
+
+						       2.Features
+                                                   --------------------
+  
+(a).Authenticity: The website provides access to the users who have registered.
+(b).Simple and responsive design: The website can be accessed using laptops, tablets or smartphones.
+
+                                                       3.Technologies used
+						  -----------------------------
+Front-end: HTML,CSS and simple JavaScript is used. 
+Back-end: Django, MySQL(for database)
+API: REST(using Django)
+                                                      4.Workflow(creation of project)
+                                                  --------------------------------------
+(a). Standard Django project named : todo
+(b). Inside todo there is a folders such as static, staticfiles, templates, tdapp, todo
+(c). todo/todo is the project but tdapp is the app
+(d). All the HTML files are stored inside templates.
+(e). All the CSS and JavaScript files are stored in the 'static' folder.
+(f). Server-side scripting is done in the views.py file
+(g). Operations using REST API and JavaScript is in static/to_do/js/app.js file.
+(h). Database was created using MySQL.
+                                                      5.Database Design
+                                           --------------------------------------
+1.The database models are stored in tdapp/models.py.
+2. Their are two tables related to each other.
+          Table 1 ---> TodoList(name,created_at).
+          Table 2 ---> Task(title,completed,todo_list)
+            
+		Table 1 -----todo_list(foreign_key)--->Table 2
+
+
+                                                    6. REST API endpoints
+                                               ------------------------------
+
+(a). GET /tasks/
+(b). POST /tasks/
+(c). GET /tasks/<int:pk>/
+(d). PUT /tasks/<int:pk>/
+(e). DELETE /tasks/<int:pk>/
+(f). GET /api/todo_lists/
+(g). POST /api/todo_lists/
+(h). GET /api/todo_lists/<int:pk>/
+(I). PUT /api/todo_lists/<int:pk>/
+                                     For more information refer to tdapp/urls.py
+
